@@ -14,9 +14,11 @@
 <launch>
   <group ns="vehicle0">
     <param name="simulationID" value="0" type="int" />  
-    <node name="unstructured" pkg="adore_if_ros" type="test_graphSearch" output="screen"/>
-    <node pkg="rostopic" type="rostopic" name="poseresetStart" args="pub /vehicle0/SIM/StartPose geometry_msgs/Pose '{position: {x: 7, y: 7, z: 0},orientation: { z: 0.1, w: -1.0}}'"/>
-    <node pkg="rostopic" type="rostopic" name="poseresetEnd" args="pub /vehicle0/SIM/EndPose geometry_msgs/Pose '{position: {x: 70, y: 9, z: 0},orientation: { z: 0.0, w: -1.0}}'"/>
+    <!--node name="unstructured" pkg="adore_if_ros" type="adore_unstructured_planner_node" output="screen"/-->
+    <node name="unstructured" pkg="adore_if_ros" type="adore_unstructured_planner_node"/>
+    <node name="unstructured" pkg="adore_if_ros" type="plot_occupancy_grid_node" output="screen"/>
+    <!--node pkg="rostopic" type="rostopic" name="poseresetStart" args="pub /vehicle0/SIM/StartPose geometry_msgs/Pose '{position: {x: 7, y: 7, z: 0},orientation: { z: 0.1, w: -1.0}}'"/>
+    <node pkg="rostopic" type="rostopic" name="poseresetEnd" args="pub /vehicle0/SIM/EndPose geometry_msgs/Pose '{position: {x: 70, y: 9, z: 0},orientation: { z: 0.0, w: -1.0}}'"/-->
     
   </group>
 </launch>
